@@ -19,16 +19,11 @@
         else{
             password.type = 'password';
             confirm_password.type = 'password';
-        }
+        }   
     }
 </script>
 {% block content %}
-    <div class="header-container">
-        <a href=""><img src="{% static 'images/logo-banco.png' %}" width="50px" height="50px" style="border-radius: 55%; margin: 0 1.5em;"></a>
-        <a href="#" class="btn btn-outline-primary" style="float: right; margin-top: 5px; font-weight: bold; border-radius: 10px;">{{user.first_name}}</a>
-        <a href="{% url 'logout' %}" class="btn btn-outline-primary" style="float: right; margin-top: 5px; font-weight: bold; border-radius: 10px;">Log out</a>
-        <a href="#" class="btn btn-outline-primary" style="float: right; margin-top: 5px; font-weight: bold; border-radius: 10px;">Trensferir</a>
-    </div>
+    {% include 'include/side_bar_login.html' %}
     <div class="container-bank">
         <div class="container">
             <div class="container-text">
@@ -37,8 +32,15 @@
                     <a href="#" style="text-decoration: none;">Ver mas...</a>
                 </div>
             </div>
-            <div class="container-login">
-                <h1 style="color: #fff;">Este es el inicio</h1>
+            <div class="container">
+                <div style="margin: 2em auto; max-width:420px; background-color: #110e0e; border-radius: 0.37em; padding: 2em; border: 1px solid rgba(0, 0, 0, 0.1);opacity: 0.87;">
+                    <div class="container-text-center">
+                        <h1>Bienvenido/a {{user.full_name}}</h1>
+                        <h2>Tu balance es: </h2>
+                        <h2>$ {{user.amount}}</h2>
+                        <a href="#">Añadir fondos</a>   
+                    </div>
+                </div>
             </div>
         </div>
     </div>

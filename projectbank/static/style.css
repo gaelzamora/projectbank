@@ -55,7 +55,7 @@ body{
     flex: 1;
     text-align: center;
 }
-.container-login{
+.container{
     flex: 1;
 }
 .text{
@@ -143,4 +143,18 @@ body{
     color: #fff;
     background-color: #b46516;
     border-color: #b46516;
+}
+.image-transfer{
+    flex: 1;
+    max-width: 50%;
+}
+.container-text-center h1, h2, a{
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+.container-text-center a{
+    text-decoration: none;
+    color: #e67e16;
+    padding: 38%;
 }

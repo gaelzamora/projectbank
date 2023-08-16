@@ -13,7 +13,7 @@ class ManagerAccount(BaseUserManager):
             email=self.normalize_email(email),
             username=username,
             first_name=first_name,
-            last_name=last_name
+            last_name=last_name,
         )
         user.set_password(password)
         user.save(using=self._db)
@@ -24,7 +24,7 @@ class ManagerAccount(BaseUserManager):
             username=username,
             first_name=first_name,
             last_name=last_name,
-            password=password
+            password=password,
         )
         user.is_admin=True
         user.is_active=True
@@ -34,14 +34,13 @@ class ManagerAccount(BaseUserManager):
         user.save(using=self._db)
 
 class Account(AbstractBaseUser):
-    amount=models.IntegerField(default=0)
+    amount=models.IntegerField()
     first_name=models.CharField(max_length=50)
     last_name=models.CharField(max_length=50)
     username=models.CharField(max_length=50, unique=True)
     email=models.CharField(max_length=100, unique=True)
     phone_number=models.CharField(max_length=50)
-    account_number=models.IntegerField(unique=True, null=True)
-
+        
     date_joined=models.DateTimeField(auto_now_add=True)
     last_joined=models.DateTimeField(auto_now_add=True)
     is_admin=models.BooleanField(default=False)
