@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    {% include 'include/side_bar.html' %}
+<section class="section-wallet">
+   {% include 'accounts/dashboard_sidebar.html' %}
+   <div class="wallet">
+    <img src="" alt="imagen de perfil" width="200" height="200" style="border-radius: 50%;">
+    <h1 style="font-size: xx-large; color:#fff; padding-bottom: 10px;">¡Hola {{user.full_name}}!</h1>
+    <p style="color: #fff;">Monto: &nbsp;<span style="color: #fff; font-size: x-large;">{{user.amount}} MXN</span></p>
+    <a href="#">Agregar monto</a>
+   </div>
+</section>
+
+
+{% endblock %}

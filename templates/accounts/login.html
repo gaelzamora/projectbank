@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+{% extends 'index.html' %}
 {% load static %}
 <head>
     <meta charset="UTF-8">
@@ -9,47 +10,59 @@
 </head>
 <body>
 {% block content %}
-    <div class="header-container">
-        <a href=""><img src="{% static 'images/logo-banco.png' %}" width="50px" height="50px" style="border-radius: 55%; margin: 0 1.5em;"></a>
-        <a href="{% url 'register' %}" class="btn btn-outline-primary" style="float: right; margin-top: 5px; font-weight: bold;border-radius: 10px;">Registrarse</a>
-    </div>
+    {% include 'include/side_bar.html' %}
     <div class="container-bank">
         <div class="container">
             <div class="container-text">
-                <div class="text">
-                    <h1 style="font-weight: bold;">Transacciones en segundos</h1><br>
-                    <a href="#" style="text-decoration: none;">Ver mas...</a>
+                <div style="float: left;">
+                    <div class="text">
+                        <h1 style="font-weight: bold; font-size: 4em;">Plataforma de transacciones innovadora</h1><br>
+                        <h2 style="font-size: 1em; text-align: left;">Registrate y obten todos nuestros beneficios para ti</h2>
+                    </div>
                 </div>
             </div>
             <div class="container">
                 <div style="margin: 2.5em auto; max-width:420px; background-color: #110e0e; border-radius: 0.37em; padding: 2em; border: 1px solid rgba(0, 0, 0, 0.1);opacity: 0.87;">
-                    <div style="text-align: center;">
-                        <h1 style="color: #fff;">Iniciar sesión</h1><br>
-                    </div>
-                    <form action="{% url 'login' %}" method="POST">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            <label for="">Email</label>
-                            <input type="email" class="form-control" placeholder="Email" name="email">
+                    {% if request.GET.command == 'verification' %}
+                        <div style="max-width: 380px; color: #fff;">
+                            Muchas gracias por registrarte en Inter Banco, te hemos enviado un email de confirmacion a tu cuenta de email [{{request.GET.email}}]
+                            <br><br>
+                            Si ya verificaste tu cuenta, puedes iniciar sesion<a href="{% url 'login' %}" style="color: #e67e16;">Iniciar sesión</a>
+
                         </div>
-                        <div class="form-group">
-                            <label for="">Contraseña</label>
-                            <input type="password" class="form-control" placeholder="Contraseña" name="password">
+                    {% else %}
+                        {% if messages %}
+                            <br>
+                            {% include 'include/alerts.html' %}
+                        {% endif %}
+                        <div style="text-align: center;">
+                            <h1 style="color: #fff;">Iniciar sesión</h1><br>
                         </div>
-                        <div class="form-group">
-                            <a href="#" style="color: #fff;">¿Olvidaste tu contraseña?</a>
-                        </div>
-                        <div class="form-group" style="text-align: center; margin-left: 3em;">
-                            <button type="submit" class="btn btn-primary">Iniciar sesión</button>
-                        </div>
-                    </form>
+                        <form action="{% url 'login' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="">Email</label>
+                                <input type="email" class="form-control" placeholder="Email" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Contraseña</label>
+                                <input type="password" class="form-control" placeholder="Contraseña" name="password">
+                            </div>
+                            <div class="form-group">
+                                <a href="#" style="color: #fff;">¿Olvidaste tu contraseña?</a>
+                            </div>
+                            <div class="form-group" style="text-align: center; margin-left: 3em;">
+                                <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                            </div>
+                        </form>
+                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
 {% endblock %}
 </body>
-</html>
+</html> 
 
 
 

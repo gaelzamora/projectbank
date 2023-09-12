@@ -1,0 +1,8 @@
+<div class="nav-wallet">
+    <ul>
+        <li class="{% if request.path == '/accounts/' %} active {% endif %}"><a href="{% url 'wallet' %}">Wallet</a></li>
+        <li class="{% if '/my_transfers/' in request.path %} active {% endif %}"><a href="{% url 'myTransfers' %}">Transferencias</a></li>
+        <li><a href="#">Contactos</a></li>
+        <li><a href="#">Editar Perfil</a></li>
+    </ul>
+</div>

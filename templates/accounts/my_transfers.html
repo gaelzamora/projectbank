@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    {% include 'include/side_bar.html' %}
+<section class="section-wallet">
+    {% include 'accounts/dashboard_sidebar.html' %}
+    <div class="wallet">
+        <p style="font-size: small; color: #fff; float: left; padding-left: 10px; padding-top: 10px;">{{transfers_count}} transferencias</p>
+        <table class="table table-hover">
+            <thead>
+                <tr style="color: #fff;">
+                    <th scope="col">Numero de Transferencia</th>
+                    <th scope="col">Monto</th>
+                    <th scope="col">Email Destino</th>
+                    <th scope="col">Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if transfers %}
+                    {% for transfer in transfers %}
+                        <tr>
+                            <th scope="row">{{transfer.transfer_id}}</th>
+                            <th scope="row">{{transfer.amount}} MXN</th>
+                            <th scope="row">{{transfer.email_destiny}}</th>
+                            <th scope="row">{{transfer.date_added}}</th>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <div style="width: 30%; margin: 10px auto;">
+                        <h3 style="font-size: x-large;">No haz hecho ninguna transferencia</h3>
+                        <a href="{% url 'transfer' %}" style="text-decoration: none;">Transferir</a>
+                    </div>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</section>
+{% endblock %}

@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'accounts',
-    'transfer'
+    'transfer',
+    'contacts',
 ]
 
 MIDDLEWARE = [
@@ -124,8 +125,19 @@ STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIRS = [
     'projectbank/static'
 ]
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+    messages.ERROR : 'danger',
+}
 
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'jgaelhz@gmail.com'
+EMAIL_HOST_PASSWORD = 'pwtvejutlutbuefi'
+EMAIL_USE_TLS = True
  
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

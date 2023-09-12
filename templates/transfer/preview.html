@@ -1,0 +1,34 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+    {% include 'include/side_bar.html' %}
+    <form action="">
+    <div class="container-preview">
+        <div class="user-data">
+            <div>
+                <center><img src="{{username.profile_picture.url}}" alt="Foto de perfil de usuario" width="100px" height="100px"></center>
+            </div>
+            <div style="color: #333; padding-left: 20px; padding-top: 20px; max-width: 100%;">
+                <span style="font-size: x-large;">{{user.full_name}}</span><br>
+                <span style="font-size: 1.2em;">{{keyword}}</span>
+            </div>
+        </div>
+        <div class="transfer-data">
+            <span style="font-weight: initial; font-size: 1.6em;color: #333; position: absolute; padding-top: 15px;">$</span>
+            <input type="text" value="0.00" class="money-value">
+        </div>
+        <div style="background-color: #dddbdb; color: #1f1e1e; width: 40px; text-align: center; padding: 2px; border-radius: 10px; margin: auto; font-weight: bolder; font-size: small;">
+            MXN
+        </div><br>
+        <div class="text-area">
+            <textarea name="" id="" cols="45" rows="2" placeholder="¿Para que es esto?" class="text-area-element"></textarea>
+        </div>
+    </div>
+        <p style="color: #333; text-align: center; margin-right: 0; font-size: 16px;">Para obtener mas informacion, lea nuestras<a href="" style="color: rgb(8, 82, 194); text-decoration: none; font-weight: bolder; margin-left: 0;">Condiciones de uso.</a></p>
+        <div class="section-input">
+            <input type="submit" value="Siguiente" class="btn" style="padding: 0.20rem 8.5rem; margin-right: 0; font-size: x-large;"><br><br>
+            <a href="{% url 'transfer' %}" style="color: rgb(26, 79, 158); text-decoration: none;">Cancelar</a>
+        </div>  
+    </form>
+{% endblock %}

@@ -34,7 +34,7 @@ class ManagerAccount(BaseUserManager):
         user.save(using=self._db)
 
 class Account(AbstractBaseUser):
-    amount=models.IntegerField()
+    amount=models.DecimalField(max_digits=7, decimal_places=2, default=0.00)
     first_name=models.CharField(max_length=50)
     last_name=models.CharField(max_length=50)
     username=models.CharField(max_length=50, unique=True)
@@ -67,7 +67,7 @@ class UserProfile(models.Model):
     user = models.OneToOneField(Account, on_delete=models.CASCADE)
     address_line_1=models.CharField(blank=True, max_length=100)
     address_line_2=models.CharField(blank=True, max_length=100)
-    profile_picture=models.ImageField(blank=True, upload_to='userprofile')
+    profile_picture=models.ImageField(blank=True, upload_to='perfiles')
     city=models.CharField(blank=True, max_length=20)
     state=models.CharField(blank=True, max_length=20)
     country=models.CharField(blank=True, max_length=20)

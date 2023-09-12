@@ -1,0 +1,19 @@
+{% load static %}
+
+    <div class="header-container">
+        <div style="width: 60%; margin: auto;">
+            <div class="nav-principal" style="width: 60%; display: flex;">
+                <a href="{% url 'bank' %}"><img src="{% static 'images/banco.png' %}" width="50px" height="50px" style="border-radius: 55%;"></a>
+                <ul style="margin-top: 10px;">
+                    <li><a href="{% url 'bank' %}" class="{% if '' == request.path %} active {% endif %}">Inicio</a></li>
+                    <li><a href="{% url 'transfer' %}" class="{% if '/transfer/' in request.path %} active {% endif %}">Enviar y Solicitar</a></li>
+                    <li><a href="">Cartera</a></li>
+                    <li><a href="">Movimientos</a></li>
+                    <li><a href="">Ayuda</a></li>
+                </ul>
+            </div>  
+            <div style="background-color: red; margin-top: -40px;">
+                <a href="{% url 'logout' %}" class="btn" style="float: right; margin-top: 5px; border-radius: 10px; border: none; margin-top: -20px; color: #e4e1e1; text-transform: uppercase; background-color: transparent;">Cerrar Sesión</a>
+            </div>
+        </div>
+    </div>

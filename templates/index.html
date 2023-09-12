@@ -4,8 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>inter | Banco Internacional</title>
+    <title>BankBlue | Tu banco favorito</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="{% static 'js/jquery-2.0.0.min.js' %}" type="text/javascript"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
 <script text="text/javascript">
@@ -19,20 +22,27 @@
         else{
             password.type = 'password';
             confirm_password.type = 'password';
-        }   
+        } 
     }
+    $(document).ready(function() {
+        setTimeout(function() {
+            $('#message').fadeOut('slow')
+        }, 4000)
+    });
 </script>
 {% block content %}
-    {% include 'include/side_bar_login.html' %}
+    {% include 'include/side_bar.html' %}
     <div class="container-bank">
         <div class="container">
             <div class="container-text">
-                <div class="text">
-                    <h1 style="font-weight: bold;">Transacciones en segundos</h1><br>
-                    <a href="#" style="text-decoration: none;">Ver mas...</a>
+                <div style="float: left;">
+                    <div class="text">
+                        <h1 style="font-weight: bold; font-size: 4em;">Plataforma de transacciones innovadora</h1><br>
+                        <h2 style="font-size: 1em; text-align: left;">Registrate y obten todos nuestros beneficios para ti</h2>
+                    </div>
                 </div>
             </div>
-            <div class="container">
+            <div class="container-login">
                 <div style="margin: 2em auto; max-width:420px; background-color: #110e0e; border-radius: 0.37em; padding: 2em; border: 1px solid rgba(0, 0, 0, 0.1);opacity: 0.87;">
                     <div class="container-text-center">
                         <h1>Bienvenido/a {{user.full_name}}</h1>
@@ -45,5 +55,34 @@
         </div>
     </div>
 {% endblock %}
+    <footer class="container-advantages">
+        <div class="container-items">
+            <div style="width: 40%; text-align: center; margin: 3em auto;">
+                <h3 style="font-size: 2em; font-weight: lighter; color: #333;">Ventajas de la plataforma</h3>
+            </div>
+            <div class="section-images">
+                <div class="images">
+                    <img src="{% static 'images/inter-1.PNG' %}" alt="">
+                    <h2 class="title-text">Puedes hacer transacciones de hasta $2499 USD</h2>
+                    <h3 class="text-lower">Comienza a hacer transferencias sin minimo de monto</h3>
+                </div>
+                <div class="images">
+                    <img src="{% static 'images/inter-2.PNG' %}" alt="">
+                    <h2 class="title-text">Transacciones 24 horas</h2>
+                    <h3 class="text-lower">Transacciones instantaneas y activas en 24 horas</h3>
+                </div>
+                <div class="images">
+                    <img src="{% static 'images/inter-3.PNG' %}" alt="">
+                    <h2 class="title-text">El monedero mas seguro</h2>
+                    <h3 class="text-lower">Si tienes problemas con tu cuenta, comunicate inmediatamente con soporte</h3>
+                </div>
+                <div class="images">
+                    <img src="{% static 'images/inter-4.PNG' %}" alt="">
+                    <h2 class="title-text">Puedes hacer transacciones de hasta $2499 USD</h2>
+                    <h3 class="text-lower">Comienza a hacer transferencias sin minimo de monto</h3>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
